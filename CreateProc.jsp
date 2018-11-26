@@ -42,7 +42,29 @@
                 String [] part;
 
                 try {
-                    String command = " terraform show -no-color";
+                    String command = "terraform apply";
+                    process = Runtime.getRuntime().exec(command);
+                    in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
+                    while ((s = in.readLine ())!= null) {
+                        if(s.contains("public_ip = ")){
+                            part = s.split(" ");
+                            ip = part[4];
+                        }
+                    }
+                    err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                    while (err.ready()) {
+                            out.println("result2 : " + err.readLine()+"<br>");
+                    }
+                } catch (Exception e) {
+                    out.println("Error : "+e);
+                System.out.println(new java.util.Date()+" process.jsp "+e);
+                } finally {
+                    if (in != null) try { in.close(); }  catch (Exception sube) {}
+                if (err != null) try { err.close(); }  catch (Exception sube) {}
+                }
+
+                try {
+                    String command = "terraform show -no-color";
                     //String command = "terraform show -no-color|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
                     //String command = "pwd";
                     process = Runtime.getRuntime().exec(command);
@@ -64,9 +86,10 @@
                     if (in != null) try { in.close(); }  catch (Exception sube) {}
                 if (err != null) try { err.close(); }  catch (Exception sube) {}
                 }
+
             %>
 
-            <%= ins_name %> 인스턴스가 생성되었고 접속 방법은 "ssh -i {업로드한 키 경로}<%= vendor %>@<%= ip %> 입니다.<p>
+            <%= ins_name %> 인스턴스가 생성되었고 접속 방법은 "ssh -i {업로드한 키 경로} <%= vendor %>@<%= ip %> 입니다.<p>
         </fieldset>
     </form>
 </body>

@@ -39,6 +39,7 @@
                 BufferedReader err = null;
                 String s = "";
                 String ip = "";
+                String [] part;
 
                 try {
                     String command = " terraform show -no-color";
@@ -48,7 +49,8 @@
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
                         if(s.contains("public_ip = ")){
-                            ip = s;
+                            part = s.split(" ");
+                            ip = part[2];
                         }
                     }
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));

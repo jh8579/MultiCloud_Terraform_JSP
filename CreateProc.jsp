@@ -51,7 +51,6 @@
                             ip = s;
                         }
                     }
-                    ip = s;
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     while (err.ready()) {
                             out.println("result2 : " + err.readLine()+"<br>");

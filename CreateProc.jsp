@@ -40,17 +40,16 @@
                 String ip = "";
 
                 try {
-                    String command = "cd /root/terraform/aws/ && terraform show | grep "public_ip =" |  grep -o -P '(?<=public_ip =).*(?=)'";
+                    String command = "cd /root/terraform/aws/ && terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
                     process = Runtime.getRuntime().exec(command);
-                
-                in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
-                while ((s = in.readLine ())!= null) {
-                    ip= s;
-                }
-                err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-                while (err.ready()) {
-                        out.println(err.readLine()+"<br>");
-                }
+                    in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
+                    while ((s = in.readLine ())!= null) {
+                        ip= s;
+                    }
+                    err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                    while (err.ready()) {
+                            out.println(err.readLine()+"<br>");
+                    }
                 } catch (Exception e) {
                     out.println("Error : "+e);
                 System.out.println(new java.util.Date()+" process.jsp "+e);

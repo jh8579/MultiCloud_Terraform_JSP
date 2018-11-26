@@ -12,7 +12,7 @@
 <h1>Multi Cloud Create Instance </h1>
 <form action="CreateProc.jsp" method="post" name="createForm">
     <fieldset>
-        <legend>인스턴스 생성</legend>
+        <legend>Create Instance</legend>
         <table class="create_table">
             <tr>
                 <th style="width:100px" scope="row"><label for="ins_name">인스턴스 이름</label></th>
@@ -31,12 +31,12 @@
                 </select></td>
             </tr>
             <tr>
-                <th scope="row"><label for="key">key 첨부</label></th>
+                <th scope="row"><label for="key">key upload</label></th>
                 <td><input type="file" id="key" name="key" /></td>
             </tr>                    
         </table>
         <div class="form_btn">
-            <input type="button" value="생성" onclick="formValidate();" /> 
+            <input type="button" value="Create" onclick="formValidate();" /> 
         </div>
     </fieldset>
 </form>

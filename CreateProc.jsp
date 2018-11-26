@@ -19,8 +19,6 @@
             String ins_name = request.getParameter("ins_name");          
             String region = request.getParameter("region");      
             String vendor = "";
-            String ip = "123.123.123.123";
-
             if (region.equals("1")){
                 // azure 생성
                 vendor = "azureuser";
@@ -34,6 +32,32 @@
                 vendor = "ubuntu";
             }
          %>
+            <%
+                Process process = null;
+                BufferedReader in = null;
+                BufferedReader err = null;
+                String ip = "";
+
+                try {
+                    String command = "cd /root/terraform/aws/ && terraform show | grep "public_ip =" |  grep -o -P '(?<=public_ip =).*(?=)'";
+                    process = Runtime.getRuntime().exec(command);
+                
+                in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
+                while ((s = in.readLine ())!= null) {
+                    ip= s;
+                }
+                err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                while (err.ready()) {
+                        out.println(err.readLine()+"<br>");
+                }
+                } catch (Exception e) {
+                    out.println("Error : "+e);
+                System.out.println(new java.util.Date()+" process.jsp "+e);
+                } finally {
+                    if (in != null) try { in.close(); }  catch (Exception sube) {}
+                if (err != null) try { err.close(); }  catch (Exception sube) {}
+                }
+                %>
 
             <%= ins_name %> 인스턴스가 생성되었고 접속 방법은 "ssh -i {업로드한 키 경로}
             <%= vendor %>@

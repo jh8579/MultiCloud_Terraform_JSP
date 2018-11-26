@@ -19,7 +19,7 @@
             String name = request.getParameter("ins_name");          
             String region = request.getParameter("region");      
             String vendor = "";
-            String ip = "";
+            String ip = "123.123.123.123";
 
             if (region.equals("1")){
                 // azure 생성
@@ -35,7 +35,7 @@
             }
          %>
 
-         <%= ins_name %> 인스턴스가 생성되었고 접속 방법은 "ssh -i {업로드한 키 경로} <% =vendor %>@<% =ip %> 입니다.<p>
+         <%= ins_name %> 인스턴스가 생성되었고 접속 방법은 "ssh -i {업로드한 키 경로} <%= vendor %>@<%= ip %> 입니다.<p>
     </fieldset>
 </form>
 </body>

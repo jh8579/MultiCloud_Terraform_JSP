@@ -49,6 +49,7 @@
                     while ((s = in.readLine ())!= null) {
                         out.println(s+"<br>");
                     }
+                    ip = s;
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     while (err.ready()) {
                             out.println(err.readLine()+"<br>");

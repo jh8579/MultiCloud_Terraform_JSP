@@ -41,7 +41,7 @@
                 String ip = "";
 
                 try {
-                    String command = "terraform show";
+                    String command = " terraform show -no-color";
                     //String command = "terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
                     //String command = "pwd";
                     process = Runtime.getRuntime().exec(command);

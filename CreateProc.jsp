@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>회원가입확인</title>
+    <title>접속 정보 확인</title>
 </head>
 
 <body>
@@ -41,7 +41,8 @@
                 String ip = "";
 
                 try {
-                    String command = "cd /home/centos/terraform/aws && terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
+                    //String command = "cd /home/centos/terraform/aws && terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
+                    //String command = "ls";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {

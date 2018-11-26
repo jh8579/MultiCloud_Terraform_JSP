@@ -48,9 +48,8 @@
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
                         if(s.contains("public_ip = ")){
-                            out.println(s);
+                            ip = s;
                         }
-
                     }
                     ip = s;
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));

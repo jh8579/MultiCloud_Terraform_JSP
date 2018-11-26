@@ -47,7 +47,7 @@
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
-                        if(s.compareTo("public_ip = ") >=0){
+                        if(s >= "public_ip = "){
                             out.println(s);
                         }
                     }

@@ -15,7 +15,7 @@
         <legend>Create Instance</legend>
         <table class="create_table">
             <tr>
-                <th style="width:100px" scope="row"><label for="ins_name">인스턴스 이름</label></th>
+                <th style="width:100px" scope="row"><label for="ins_name"> Instance Name</label></th>
                 <td><input type="text" id="ins_name" name="ins_name" /></td>
             </tr>
             <tr>

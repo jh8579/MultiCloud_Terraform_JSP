@@ -41,8 +41,8 @@
                 String ip = "";
 
                 try {
-                    //String command = "cd /home/centos/terraform/aws && terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
-                    String command = "ls";
+                    String command = "terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
+                    //String command = "ls";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {

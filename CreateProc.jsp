@@ -47,7 +47,7 @@
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
-                        ip= s;
+                        out.println(s+"<br>");
                     }
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     while (err.ready()) {

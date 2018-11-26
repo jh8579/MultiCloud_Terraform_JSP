@@ -42,7 +42,7 @@
                 String [] part;
 
                 try {
-                    String command = "terraform apply";
+                    String command = "terraform apply -auto-approve";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {

@@ -47,12 +47,12 @@
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
-                        out.println(s+"<br>");
+                        out.println("result :" + s+"<br>");
                     }
                     ip = s;
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     while (err.ready()) {
-                            out.println(err.readLine()+"<br>");
+                            out.println("result2 : " + err.readLine()+"<br>");
                     }
                 } catch (Exception e) {
                     out.println("Error : "+e);

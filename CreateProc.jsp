@@ -17,15 +17,15 @@
             // scriptlet
             
             String name = request.getParameter("ins_name");          
-            int region = request.getParameter("region");      
+            String region = request.getParameter("region");      
             String vendor = "";
             String ip = "";
 
-            if (region == 1){
+            if (region.equals("1")){
                 // azure 생성
                 vendor = "azureuser"
             }
-            else if (region == 2){
+            else if (region.equals("2")){
                 // aws 생성
                 vendor = "ec2-user"
             }

@@ -36,7 +36,7 @@
             </tr>                    
         </table>
         <div class="form_btn">
-            <input type="button" value="Create" onclick="formValidate();" /> 
+            <input type="submit" value="Create" onclick="formValidate();" /> 
         </div>
     </fieldset>
 </form>

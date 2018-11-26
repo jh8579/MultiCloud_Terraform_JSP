@@ -23,15 +23,15 @@
 
             if (region.equals("1")){
                 // azure 생성
-                vendor = "azureuser"
+                vendor = "azureuser";
             }
             else if (region.equals("2")){
                 // aws 생성
-                vendor = "ec2-user"
+                vendor = "ec2-user";
             }
             else{
                 // toast 생성
-                vendor = "ubuntu"
+                vendor = "ubuntu";
             }
          %>
 

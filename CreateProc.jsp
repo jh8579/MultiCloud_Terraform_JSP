@@ -32,7 +32,7 @@
                 // toast 생성
                 vendor = "ubuntu";
             }
-         %>
+            %>
             <%
                 Process process = null;
                 BufferedReader in = null;
@@ -41,13 +41,13 @@
                 String ip = "";
 
                 try {
-                    String command = " terraform show -no-color";
-                    //String command = "terraform show|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
+                    //String command = " terraform show -no-color";
+                    String command = "terraform show|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
                     //String command = "pwd";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
-                        out.println("result :" + s+"<br>");
+                        out.println(s);
                     }
                     ip = s;
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));
@@ -61,7 +61,7 @@
                     if (in != null) try { in.close(); }  catch (Exception sube) {}
                 if (err != null) try { err.close(); }  catch (Exception sube) {}
                 }
-                %>
+            %>
 
             <%= ins_name %> 인스턴스가 생성되었고 접속 방법은 "ssh -i {업로드한 키 경로}
             <%= vendor %>@

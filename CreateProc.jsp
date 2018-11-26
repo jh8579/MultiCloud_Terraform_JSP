@@ -50,7 +50,7 @@
                     while ((s = in.readLine ())!= null) {
                         if(s.contains("public_ip = ")){
                             part = s.split(" ");
-                            ip = part[2];
+                            ip = part[4];
                         }
                     }
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));

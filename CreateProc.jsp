@@ -41,13 +41,15 @@
                 String ip = "";
 
                 try {
-                    //String command = " terraform show -no-color";
-                    String command = "terraform show -no-color|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
+                    String command = " terraform show -no-color";
+                    //String command = "terraform show -no-color|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
                     //String command = "pwd";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
-                        out.println(s);
+                        if(s.compareTo("public_ip = ") >=0){
+                            out.println(s);
+                        }
                     }
                     ip = s;
                     err = new BufferedReader(new InputStreamReader(process.getErrorStream()));

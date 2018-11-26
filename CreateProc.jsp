@@ -42,7 +42,7 @@
 
                 try {
                     //String command = " terraform show -no-color";
-                    String command = "terraform show|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
+                    String command = "terraform show -no-color|grep 'public_ip ='|grep -o -P '(?<=public_ip =).*(?=)'";
                     //String command = "pwd";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));

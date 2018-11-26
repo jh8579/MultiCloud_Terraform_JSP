@@ -23,9 +23,9 @@
                 <tr>
                     <th scope="row"><label for="region">Region</label></th>
                     <td><select name="region">
-                            <option value=1>NA</option>
-                            <option value=2>EU</option>
-                            <option value=3>KR</option>
+                            <option value=1>NA(Azure)</option>
+                            <option value=2>EU(AWS)</option>
+                            <option value=3>KR(Toast)</option>
                         </select></td>
                 </tr>
                 <tr>

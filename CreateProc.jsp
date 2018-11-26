@@ -37,6 +37,7 @@
                 Process process = null;
                 BufferedReader in = null;
                 BufferedReader err = null;
+                String s = "";
                 String ip = "";
 
                 try {

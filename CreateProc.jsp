@@ -42,8 +42,8 @@
 
                 try {
                     
-                    //String command = "terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
-                    String command = "dir";
+                    String command = "terraform show | grep 'public_ip =' |  grep -o -P '(?<=public_ip =).*(?=)'";
+                    //String command = "dir";
                     process = Runtime.getRuntime().exec(command);
                     in =  new BufferedReader (new InputStreamReader(process.getInputStream()));
                     while ((s = in.readLine ())!= null) {
